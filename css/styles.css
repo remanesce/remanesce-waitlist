@@ -1,9 +1,5 @@
-/* =============================================================
-   Remanesce — landing page
-   Tokens · Layout · Components · Responsive
-   ============================================================= */
+/* --- Tokens --- */
 
-/* ---------- Tokens ---------- */
 :root {
   /* Colors */
   --color-cream: #F5F0E7;
@@ -25,7 +21,8 @@
   --stretch: 1.15;
 }
 
-/* ---------- Reset ---------- */
+/* --- Reset --- */
+
 *,
 *::before,
 *::after {
@@ -77,7 +74,8 @@ select {
   color: inherit;
 }
 
-/* ---------- Accessibility helpers ---------- */
+/* --- Accessibility helpers --- */
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -113,7 +111,57 @@ select {
   outline-offset: 3px;
 }
 
-/* ---------- Header ---------- */
+/* --- Components --- */
+
+.secondary-title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.75rem;
+}
+
+.autoscroll-container {
+  overflow: hidden;
+}
+
+.autoscroll-track {
+  width: max-content;
+  animation: autoscroll 30s linear infinite;
+}
+
+.autoscroll-container:hover .autoscroll-track {
+  animation-play-state: paused;
+}
+
+/* --- Headlines --- */
+
+.headlines {
+  overflow: hidden;
+  width: 100%;
+}
+
+.headlines__track {
+  display: flex;
+  align-items: start;
+  margin-block: 1rem;
+}
+
+.headline {
+  display: flex;
+  align-items: center;
+  margin-right: 1rem;
+}
+
+.headline:nth-child(odd) {
+  transform: rotateZ(random(-10deg, 10deg));
+}
+
+.headline:nth-child(even) {
+  margin-top: 2rem;
+  transform: rotateZ(random(-10deg, 10deg));
+}
+
+/* --- Header --- */
+
 .site-header {
   display: flex;
   align-items: center;
@@ -184,7 +232,8 @@ select {
   opacity: 0.85;
 }
 
-/* ---------- Buttons ---------- */
+/* --- Buttons --- */
+
 .btn {
   display: inline-block;
   background-color: var(--color-navy);
@@ -207,7 +256,8 @@ select {
   transform: translateY(0);
 }
 
-/* ---------- Hero ---------- */
+/* --- Hero --- */
+
 .hero {
   display: flex;
   justify-content: center;
@@ -242,7 +292,8 @@ select {
   transform: translateX(-50%) translateY(-2px);
 }
 
-/* ---------- Intro ---------- */
+/* --- Intro --- */
+
 .intro {
   padding: 0.9rem var(--gutter) 0;
   text-align: center;
@@ -269,7 +320,8 @@ select {
   line-height: 1.4;
 }
 
-/* ---------- Features ---------- */
+/* --- Features --- */
+
 .features {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 300px));
@@ -292,13 +344,7 @@ select {
 }
 
 .feature__title {
-  max-width: 16rem;
   margin: 0.9rem auto 0;
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: 1.75rem;
-  line-height: 1.25;
-  transform: scaleX(1.24);
 }
 
 .feature__text {
@@ -308,7 +354,8 @@ select {
   line-height: 1.5;
 }
 
-/* ---------- Waitlist ---------- */
+/* --- Waitlist --- */
+
 .waitlist {
   margin-top: 7.5rem;
   padding: 0 var(--gutter);
@@ -365,7 +412,8 @@ select {
   font-size: 1.125rem;
 }
 
-/* ---------- Footer ---------- */
+/* --- Footer --- */
+
 .site-footer {
   margin-top: 7rem;
   padding: 0 var(--gutter) 2.75rem;
@@ -374,7 +422,8 @@ select {
   text-align: center;
 }
 
-/* ---------- Responsive ---------- */
+/* --- Responsive --- */
+
 @media (max-width: 62rem) {
   /* Below this width there is not enough room to stretch the display type. */
   :root {
@@ -382,7 +431,6 @@ select {
   }
 
   .section-title,
-  .feature__title,
   .brand__name {
     transform: none;
   }
@@ -437,7 +485,8 @@ select {
   }
 }
 
-/* ---------- Motion preferences ---------- */
+/* --- Motion preferences --- */
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -448,5 +497,16 @@ select {
   *::after {
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
+  }
+}
+
+/* --- Animations --- */
+
+@keyframes autoscroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
   }
 }
