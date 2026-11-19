@@ -160,36 +160,8 @@
 
       <h2 class="section-title section-title--small" id="waitlist-title">JOIN THE WAITLIST!</h2>
 
-      <!--
-        No JavaScript here: the form submits with GET to the current page.
-        Point `action` at your endpoint (Formspree, Buttondown, a Worker, ...)
-        when you have one and it will keep working as-is.
-      -->
-      <form class="waitlist__form" action="#" method="get">
-        <div class="field">
-          <label class="sr-only" for="wl-name">What&rsquo;s your name?</label>
-          <input class="field__control" id="wl-name" name="name" type="text" placeholder="What&rsquo;s your name?" autocomplete="name" required>
-        </div>
-
-        <div class="field">
-          <label class="sr-only" for="wl-email">Your best email</label>
-          <input class="field__control" id="wl-email" name="email" type="email" placeholder="Your best email :D" autocomplete="email" required>
-        </div>
-
-        <div class="field">
-          <label class="sr-only" for="wl-features">What features are you most interested in?</label>
-          <select class="field__control field__control--select" id="wl-features" name="features">
-            <option value="" selected>What features are you most interested in?</option>
-            <option value="memory-board">Memory board</option>
-            <option value="file-storage">File storage</option>
-            <option value="group-collab">Creating with friends</option>
-            <option value="timeline">Memories timeline</option>
-            <option value="something-else">Something else entirely</option>
-          </select>
-        </div>
-
-        <button class="btn btn--submit" type="submit">Join waitlist</button>
-      </form>
+      <iframe data-tally-src="https://tally.so/embed/OQXXOK?hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="615" frameborder="0" marginheight="0" marginwidth="0" title="Join the Waitlist!"></iframe>
+      <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
 
       <p class="waitlist__note">Don&rsquo;t worry! We&rsquo;ll only send relevant updates for you - no spam!</p>
     </section>
