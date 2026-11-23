@@ -135,30 +135,38 @@ select {
 /* --- Headlines --- */
 
 .headlines {
-  overflow: hidden;
-  width: 100%;
   margin: 2rem auto 3rem;
+  max-width: 1280px;
+  position: relative;
+}
+
+.headlines::before, .headlines::after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 10%;
+  height: 100%;
+}
+
+.headlines::before {
+  z-index: 1;
+  background: linear-gradient(90deg,rgba(244, 232, 221, 1) 0%, rgba(244, 232, 221, 0.01) 100%);
+}
+
+.headlines::after {
+  top: 0;
+  right: 0;
+  background: linear-gradient(-90deg,rgba(244, 232, 221, 1) 0%, rgba(244, 232, 221, 0.01) 100%);
 }
 
 .headlines__track {
   display: flex;
-  align-items: start;
-  margin-block: 1rem;
 }
 
 .headline {
   display: flex;
   align-items: center;
-  margin-right: 1rem;
-}
-
-.headline:nth-child(odd) {
-  transform: rotateZ(random(-10deg, 10deg));
-}
-
-.headline:nth-child(even) {
-  margin-top: 2rem;
-  transform: rotateZ(random(-10deg, 10deg));
+  padding-right: 2rem;
 }
 
 /* --- Header --- */
