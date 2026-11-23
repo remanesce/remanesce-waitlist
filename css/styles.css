@@ -289,7 +289,7 @@ select {
 }
 
 .btn--hero:hover {
-  transform: translateX(-50%) translateY(-2px);
+  transform: translateX(-50%) scale(1.1);
 }
 
 /* --- Intro --- */
