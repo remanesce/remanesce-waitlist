@@ -15,6 +15,8 @@
   --radius-card: 10px;
   --gutter: clamp(1.25rem, 3.2vw, 2rem);
   --border: 2px solid var(--color-navy);
+  --container-large: 2000px;
+  --container-medium: 1280px;
 
   /* Caveat Brush is a touch narrower than the lettering in the mockup,
      so display type is stretched slightly to keep the proportions. */
@@ -135,29 +137,38 @@ select {
 /* --- Headlines --- */
 
 .headlines {
-  overflow: hidden;
-  width: 100%;
+  margin: 2rem auto 3rem;
+  max-width: var(--container-medium);
+  position: relative;
+}
+
+.headlines::before, .headlines::after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 10%;
+  height: 100%;
+}
+
+.headlines::before {
+  z-index: 1;
+  background: linear-gradient(90deg,rgba(244, 232, 221, 1) 0%, rgba(244, 232, 221, 0.01) 100%);
+}
+
+.headlines::after {
+  top: 0;
+  right: 0;
+  background: linear-gradient(-90deg,rgba(244, 232, 221, 1) 0%, rgba(244, 232, 221, 0.01) 100%);
 }
 
 .headlines__track {
   display: flex;
-  align-items: start;
-  margin-block: 1rem;
 }
 
 .headline {
   display: flex;
   align-items: center;
-  margin-right: 1rem;
-}
-
-.headline:nth-child(odd) {
-  transform: rotateZ(random(-10deg, 10deg));
-}
-
-.headline:nth-child(even) {
-  margin-top: 2rem;
-  transform: rotateZ(random(-10deg, 10deg));
+  padding-right: 2rem;
 }
 
 /* --- Header --- */
@@ -168,6 +179,8 @@ select {
   justify-content: space-between;
   gap: 1rem;
   padding: 1.35rem var(--gutter);
+  margin: 0 auto;
+  max-width: var(--container-large);
 }
 
 .brand {
@@ -219,7 +232,7 @@ select {
   color: var(--color-cream);
   border-radius: 50%;
   text-decoration: none;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .social__link svg {
@@ -229,7 +242,6 @@ select {
 
 .social__link:hover {
   transform: scale(1.1);
-  opacity: 0.85;
 }
 
 /* --- Buttons --- */
@@ -244,7 +256,7 @@ select {
   text-align: center;
   text-decoration: none;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .btn:hover {
@@ -261,7 +273,6 @@ select {
 .hero {
   display: flex;
   justify-content: center;
-  padding-top: 2.1rem;
 }
 
 .hero__media {
@@ -289,7 +300,7 @@ select {
 }
 
 .btn--hero:hover {
-  transform: translateX(-50%) translateY(-2px);
+  transform: translateX(-50%) scale(1.1);
 }
 
 /* --- Intro --- */
@@ -327,7 +338,6 @@ select {
   grid-template-columns: repeat(3, minmax(0, 300px));
   gap: 4rem;
   justify-content: center;
-  margin-top: 4.7rem;
   padding: 0 var(--gutter);
 }
 
@@ -357,9 +367,13 @@ select {
 /* --- Waitlist --- */
 
 .waitlist {
-  margin-top: 7.5rem;
+  margin-top: 4rem;
   padding: 0 var(--gutter);
   text-align: center;
+}
+
+.waitlist__title {
+  text-transform: uppercase;
 }
 
 .waitlist__note {
@@ -399,8 +413,12 @@ select {
 
 @media (max-width: 40rem) {
   .site-header {
-    flex-wrap: wrap;
+    justify-content: space-between;
     gap: 1rem;
+  }
+
+  .social__label {
+    display: none;
   }
 
   .brand__mark {
@@ -413,27 +431,16 @@ select {
   }
 
   .social {
-    width: 100%;
-    flex-wrap: wrap;
     gap: 0.75rem 1rem;
     justify-content: space-between;
   }
 
-  .hero {
-    padding-top: 1rem;
-  }
-
   .features {
     grid-template-columns: 1fr;
-    margin-top: 4rem;
   }
 
   .feature__text {
     max-width: 22rem;
-  }
-
-  .waitlist {
-    margin-top: 5rem;
   }
 
   .site-footer {
